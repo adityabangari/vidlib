@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
     get '/details/json_show', to: 'video_models#json_show'
 
+  
+
 
 
   #resources :moviedata

@@ -21,9 +21,8 @@ class VideoModelsController < ApplicationController
   end
 
    def json_show
-    @video_model = params[:video_model]
-   
-  end
+     @video_model = params[:video_model]
+   end
 
   # GET /video_models/new
   def new
@@ -32,25 +31,24 @@ class VideoModelsController < ApplicationController
 
   # GET /video_models/1/edit
   def edit
-    
   end
 
   # POST /video_models
   # POST /video_models.json
-  # def create
-  #   @video_model = VideoModel.new(video_model_params)
-  #
-  #
-  #   respond_to do |format|
-  #     if @video_model.save
-  #       format.html { redirect_to @video_model, notice: 'Video model was successfully created.' }
-  #       format.json { render :json_data, status: :created, location: @video_model }
-  #     else
-  #       format.html { render :new }
-  #       format.json { render json: @video_model.errors, status: :unprocessable_entity }
-  #     end
-  #   end
-  # end
+  def create
+    @video_model = VideoModel.new(video_model_params)
+
+
+    respond_to do |format|
+      if @video_model.save
+        format.html { redirect_to @video_model, notice: 'Video model was successfully created.' }
+        format.json { render :show, status: :created, location: @video_model }
+      else
+        format.html { render :new }
+        format.json { render json: @video_model.errors, status: :unprocessable_entity }
+      end
+    end
+  end
 
   def json_data
     @id = params[:imdb_id]
@@ -60,7 +58,8 @@ class VideoModelsController < ApplicationController
 
         @video_model = HTTParty.get('https://api.themoviedb.org/3/find/' + params[:imdb_id] + '?api_key=b8df5110fb459bebc8d5cb7cbb6acfe8&language=en-US&external_source=imdb_id')
 
-        redirect_to new_video_model_path(:video_model => @video_model)
+        render 'json_show'
+        # , :video_model => @video_model
     end
   end
 
