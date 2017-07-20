@@ -1,7 +1,6 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Video Models</h1>
-
 <table>
   <thead>
     <tr>
@@ -60,6 +59,10 @@
   </tbody>
 </table>
 
+
+
+
 <br>
 
-<%= link_to 'New Video Model', new_video_model_path %>
+<%= link_to 'Add Video', new_video_model_path %>
+<%= link_to 'find Video', details_json_show_path , method: :get %>

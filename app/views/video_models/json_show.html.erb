@@ -1,0 +1,142 @@
+
+
+
+
+
+<%= form_for :video_model do |form| %>
+
+
+    <div class="field">
+      <%= form.label :adult %>
+      <%= form.check_box :adult, id: :video_model_adult %>
+    </div>
+
+    <div class="field">
+      <%= form.label :backdrop_path %>
+      <%= form.text_field :backdrop_path, id: :video_model_backdrop_path %>
+    </div>
+
+    <div class="field">
+      <%= form.label :belongs_to_collection %>
+      <%= form.text_field :belongs_to_collection, id: :video_model_belongs_to_collection %>
+    </div>
+
+    <div class="field">
+      <%= form.label :budget %>
+      <%= form.number_field :budget, id: :video_model_budget %>
+    </div>
+
+    <div class="field">
+      <%= form.label :homepage %>
+      <%= form.text_field :homepage, id: :video_model_homepage %>
+    </div>
+
+    <div class="field">
+      <%= form.label :id %>
+      <%= form.number_field :id, id: :video_model_id %>
+    </div>
+
+    <div class="field">
+      <%= form.label :imdb_id %>
+      <%= form.text_field :imdb_id, id: :video_model_imdb_id %>
+
+    </div>
+
+    <div>
+
+
+      <%=  button_to "Fetch movie details", details_path  %>
+
+    </div>
+
+    <div class="field">
+      <%= form.label :original_language %>
+      <%= form.text_field :original_language, id: :video_model_original_language %>
+    </div>
+
+    <div class="field">
+      <%= form.label :original_title %>
+      <%= form.text_field :original_title, id: :video_model_original_title %>
+    </div>
+
+    <div class="field">
+      <%= form.label :overview %>
+      <%= form.text_field :overview, id: :video_model_overview %>
+    </div>
+
+    <div class="field">
+      <%= form.label :popularity %>
+      <%= form.text_field :popularity, id: :video_model_popularity %>
+    </div>
+
+    <div class="field">
+      <%= form.label :poster_path %>
+      <%= form.text_field :poster_path, id: :video_model_poster_path %>
+    </div>
+
+    <div class="field">
+      <%= form.label :release_date %>
+      <%= form.text_field :release_date, id: :video_model_release_date %>
+    </div>
+
+    <div class="field">
+      <%= form.label :revenue %>
+      <%= form.number_field :revenue, id: :video_model_revenue %>
+    </div>
+
+    <div class="field">
+      <%= form.label :runtime %>
+      <%= form.number_field :runtime, id: :video_model_runtime %>
+    </div>
+
+    <div class="field">
+      <%= form.label :status %>
+      <%= form.text_field :status, id: :video_model_status %>
+    </div>
+
+    <div class="field">
+      <%= form.label :tagline %>
+      <%= form.text_field :tagline, id: :video_model_tagline %>
+    </div>
+
+    <div class="field">
+      <%= form.label :video %>
+      <%= form.check_box :video, id: :video_model_video %>
+    </div>
+
+    <div class="field">
+      <%= form.label :vote_average %>
+      <%= form.text_field :vote_average, id: :video_model_vote_average %>
+    </div>
+
+    <div class="field">
+      <%= form.label :vote_count %>
+      <%= form.number_field :vote_count, id: :video_model_vote_count %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit %>
+    </div>
+<% end %>
+
+
+
+<!---
+<
+<script type="text/javascript" charset="utf-8">
+    $("#fetch").on('click', function(){
+        var value1 = $('#video_model_imdb_id').val();
+
+
+        console.log(value1);
+       console.log('--------------------------------------');
+
+        $.ajax({
+            url: "",
+            data: {
+                id: value1
+            },
+            dataType: "json"
+        })
+    })
+</script>>    ->

@@ -1,4 +1,11 @@
-<%= form_with(model: video_model, local: true) do |form| %>
+
+
+<%= form_tag details_path  do %>
+    <%= text_field_tag  :imdb_id %>
+    <%= submit_tag 'Do it', class: 'submit' %>
+<% end %>
+
+<%= form_for :video_model do |form| %>c
   <% if video_model.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(video_model.errors.count, "error") %> prohibited this video_model from being saved:</h2>
@@ -44,6 +51,7 @@
   <div class="field">
     <%= form.label :imdb_id %>
     <%= form.text_field :imdb_id, id: :video_model_imdb_id %>
+
   </div>
 
   <div class="field">
@@ -115,3 +123,25 @@
     <%= form.submit %>
   </div>
 <% end %>
+
+
+
+<!---
+<
+<script type="text/javascript" charset="utf-8">
+    $("#fetch").on('click', function(){
+        var value1 = $('#video_model_imdb_id').val();
+
+
+        console.log(value1);
+       console.log('--------------------------------------');
+
+        $.ajax({
+            url: "",
+            data: {
+                id: value1
+            },
+            dataType: "json"
+        })
+    })
+</script>>    ->

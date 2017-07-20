@@ -1,4 +1,5 @@
-class VideoModel < ApplicationRecord
 
+
+class VideoModel < ApplicationRecord
 include HTTParty
 end
