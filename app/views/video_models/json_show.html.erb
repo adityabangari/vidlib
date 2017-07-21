@@ -1,5 +1,143 @@
 <!--<#%= fields_for :video_model do |p| %>-->
     <!--Admin?: <#%= p.text_field :imdb_id %>-->
 <!--<#% end %>-->
+<%#= @video_model.inspect %>
+<%#= @video_model['movie_results']['backdrop_path'] %>
 
-<%= @video_model.inspect %>
+
+<!--<%#= @video_model.each do |a| %>-->
+<!--<%#= Console.log(a.backdrop)%>-->
+
+
+<!--<%#end%>-->
+<% backdrop_path = @video_model['movie_results'][0]['backdrop_path'] %>
+
+<% adult= @video_model['movie_results'][0]['adult'] %>
+
+<% original_language= @video_model['movie_results'][0]['original_language'] %>
+
+<% original_title= @video_model['movie_results'][0]['original_title'] %>
+
+<% overview= @video_model['movie_results'][0]['overview'] %>
+
+<% popularity= @video_model['movie_results'][0]['popularity'] %>
+
+<% poster_path= @video_model['movie_results'][0]['poster_path'] %>
+
+<% release_date= @video_model['movie_results'][0]['release_date'] %>
+
+<% movie_id= @video_model['movie_results'][0]['id'] %>
+
+<% title= @video_model['movie_results'][0]['title'] %>
+
+<% video= @video_model['movie_results'][0]['video'] %>
+
+<% vote_average= @video_model['movie_results'][0]['vote_average'] %>
+
+<% vote_count= @video_model['movie_results'][0]['vote_count'] %>
+
+
+<%= form_for :video_models do |f| %>
+
+    <div>
+      <%= f.label :adult %>
+   <%= f.check_box :adult, :checked => adult %>
+    </div>
+
+    <br>
+    <br>
+
+    <div>
+      <%= f.label :backdrop_path %>
+    <%= f.text_field :backdrop_path, :value => backdrop_path %>
+    </div>
+
+    <br>
+    <br>
+
+    <div>
+      <%= f.label :original_language %>
+      <%= f.text_field :original_language, :value => original_language %>
+    </div>
+
+    <br><br>
+
+    <div>
+      <%= f.label :title%>
+      <%= f.text_field :title, :value => title %>
+    </div>
+
+    <br><br>
+
+    <div>
+      <%= f.label :original_title %>
+      <%= f.text_field :original_title, :value => original_title %>
+    </div>
+
+    <br><br>
+
+    <div>
+      <%= f.label :overview %>
+      <%= f.text_area :overview, :value => overview %>
+    </div>
+
+      <br><br>
+
+    <div>
+      <%= f.label :popularity %>
+      <%= f.number_field :popularity, :value => popularity %>
+    </div>
+
+    <br><br>
+
+    <div>
+      <%= f.label :poster_path %>
+      <%= f.text_field :poster_path, :value => poster_path %>
+    </div>
+
+      <br><br>
+
+    <div>
+      <%= f.label :release_date %>
+      <%= f.text_field :release_date, :value => release_date %>
+    </div>
+
+      <br><br>
+
+
+    <div>
+      <%= f.label :movie_id %>
+    <%= f.number_field :movie_id, :value => movie_id %>
+    </div>
+
+      <br><br>
+
+    <div>
+      <%= f.label :video %>
+       <%= f.check_box :video, :checked => video %>
+    </div>
+
+      <br><br>
+
+    <div>
+      <%= f.label :vote_average %>
+    <%= f.number_field :vote_average, :value => vote_average %>
+    </div>
+
+     <br><br>
+
+    <div>
+      <%= f.label :vote_count %>
+      <%= f.number_field :vote_count, :value => vote_count %>
+    </div>
+
+    <br><br>
+
+    <div>
+      <%= f.submit %>
+    </div>
+
+
+
+
+<% end %>
