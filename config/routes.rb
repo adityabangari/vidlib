@@ -8,8 +8,10 @@ Rails.application.routes.draw do
 
     get '/details/json_show', to: 'video_models#json_show'
 
-  
 
+    get 'find', to: 'video_models#find'
+
+    post 'json_post', to: 'video_models#create'
 
 
   #resources :moviedata

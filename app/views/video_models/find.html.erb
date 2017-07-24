@@ -1,0 +1,5 @@
+<label> Imdb ID</label>
+<%= form_tag details_path  do %>
+    <%= text_field_tag  :imdb_id %>
+    <%= submit_tag 'Fetch Movie Details', class: 'submit' %>
+<% end %>

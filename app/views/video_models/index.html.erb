@@ -6,10 +6,6 @@
     <tr>
       <th>Adult</th>
       <th>Backdrop path</th>
-      <th>Belongs to collection</th>
-      <th>Budget</th>
-      <th>Homepage</th>
-      <th>Id</th>
       <th>Imdb</th>
       <th>Original language</th>
       <th>Original title</th>
@@ -17,10 +13,6 @@
       <th>Popularity</th>
       <th>Poster path</th>
       <th>Release date</th>
-      <th>Revenue</th>
-      <th>Runtime</th>
-      <th>Status</th>
-      <th>Tagline</th>
       <th>Video</th>
       <th>Vote average</th>
       <th>Vote count</th>
@@ -33,21 +25,13 @@
       <tr>
         <td><%= video_model.adult %></td>
         <td><%= video_model.backdrop_path %></td>
-        <td><%= video_model.belongs_to_collection %></td>
-        <td><%= video_model.budget %></td>
-        <td><%= video_model.homepage %></td>
-        <td><%= video_model.id %></td>
         <td><%= video_model.imdb_id %></td>
         <td><%= video_model.original_language %></td>
         <td><%= video_model.original_title %></td>
         <td><%= video_model.overview %></td>
         <td><%= video_model.popularity %></td>
-        <td><%= video_model.poster_path %></td>
+        <td><a href="<%= video_model.poster_path %>"><%= video_model.poster_path %></a></td>
         <td><%= video_model.release_date %></td>
-        <td><%= video_model.revenue %></td>
-        <td><%= video_model.runtime %></td>
-        <td><%= video_model.status %></td>
-        <td><%= video_model.tagline %></td>
         <td><%= video_model.video %></td>
         <td><%= video_model.vote_average %></td>
         <td><%= video_model.vote_count %></td>
@@ -64,5 +48,6 @@
 
 <br>
 
-<%= link_to 'Add Video', new_video_model_path %>
-<%= link_to 'find Video', details_json_show_path , method: :get %>
+<%= link_to 'Find Video', find_path, method: :get %>
+<%= link_to 'sdzfbfind Video', details_json_show_path , method: :get %>
+<%= link_to 'new video', new_video_model_path, method: :get %>

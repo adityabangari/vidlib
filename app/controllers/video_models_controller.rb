@@ -20,6 +20,10 @@ class VideoModelsController < ApplicationController
   def show
   end
 
+  def find
+    render 'find'
+  end
+
    def json_show
      @video_model = params[:video_model]
    end
@@ -51,8 +55,8 @@ class VideoModelsController < ApplicationController
   end
 
   def json_data
-    @id = params[:imdb_id]
-    puts @id.inspect
+    @imdb_id = params[:imdb_id]
+    puts @imdb_id.inspect
 
     if params[:imdb_id].present?
 
@@ -95,6 +99,6 @@ class VideoModelsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def video_model_params
-      params.require(:video_model).permit(:adult, :backdrop_path, :belongs_to_collection, :budget, :homepage, :id, :imdb_id, :original_language, :original_title, :overview, :popularity, :poster_path, :release_date, :revenue, :runtime, :status, :tagline, :video, :vote_average, :vote_count)
+      params.require(:video_model).permit(:adult, :backdrop_path, :imdb_id, :original_language, :original_title, :overview, :popularity, :poster_path, :release_date, :video, :vote_average, :vote_count)
     end
 end
