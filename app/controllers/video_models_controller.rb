@@ -18,6 +18,7 @@ class VideoModelsController < ApplicationController
   # GET /video_models/1
   # GET /video_models/1.json
   def show
+    @video_model = VideoModel.find(params[:id])
   end
 
   def find
@@ -35,6 +36,7 @@ class VideoModelsController < ApplicationController
 
   # GET /video_models/1/edit
   def edit
+    @video_model = VideoModel.find(params[:id])
   end
 
   # POST /video_models
@@ -45,6 +47,7 @@ class VideoModelsController < ApplicationController
 
     respond_to do |format|
       if @video_model.save
+        # @video_model=params[:video_model]
         format.html { redirect_to @video_model, notice: 'Video model was successfully created.' }
         format.json { render :show, status: :created, location: @video_model }
       else
@@ -84,7 +87,14 @@ class VideoModelsController < ApplicationController
   # DELETE /video_models/1
   # DELETE /video_models/1.json
   def destroy
+
+
+    @video_model = VideoModel.find(params[:id])
+
+    if @video_model.present?
     @video_model.destroy
+    end
+
     respond_to do |format|
       format.html { redirect_to video_models_url, notice: 'Video model was successfully destroyed.' }
       format.json { head :no_content }

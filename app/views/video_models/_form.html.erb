@@ -1,11 +1,11 @@
 
 <%= form_for :video_model do |form| %>
-  <% if video_model.errors.any? %>
+  <% if @video_model.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(video_model.errors.count, "error") %> prohibited this video_model from being saved:</h2>
+      <h2><%= pluralize(@video_model.errors.count, "error") %> prohibited this video_model from being saved:</h2>
 
       <ul>
-      <% video_model.errors.full_messages.each do |message| %>
+      <% @video_model.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>

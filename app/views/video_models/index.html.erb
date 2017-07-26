@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
-
+<%= link_to 'New article', new_video_model_path %>
 <h1>Video Models</h1>
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Adult</th>
@@ -22,6 +22,7 @@
 
   <tbody>
     <% @video_models.each do |video_model| %>
+
       <tr>
         <td><%= video_model.adult %></td>
         <td><%= video_model.backdrop_path %></td>
@@ -30,17 +31,21 @@
         <td><%= video_model.original_title %></td>
         <td><%= video_model.overview %></td>
         <td><%= video_model.popularity %></td>
-        <td><a href="<%= video_model.poster_path %>"><%= video_model.poster_path %></a></td>
+        <td><%= video_model.poster_path %></td>
         <td><%= video_model.release_date %></td>
         <td><%= video_model.video %></td>
         <td><%= video_model.vote_average %></td>
         <td><%= video_model.vote_count %></td>
-        <td><%= link_to 'Show', video_model %></td>
-        <td><%= link_to 'Edit', edit_video_model_path(video_model) %></td>
-        <td><%= link_to 'Destroy', video_model, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class="btn"><%= link_to 'Show', video_model %></td>
+        <td class="btn"><%= link_to 'Edit', edit_video_model_path(video_model) %></td>
+        <td class="btn"><%= link_to 'Destroy', video_model, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
       </tr>
+
     <% end %>
+
   </tbody>
+
 </table>
 
 
@@ -49,5 +54,5 @@
 <br>
 
 <%= link_to 'Find Video', find_path, method: :get %>
-<%= link_to 'sdzfbfind Video', details_json_show_path , method: :get %>
-<%= link_to 'new video', new_video_model_path, method: :get %>
+<%#= link_to 'sdzfbfind Video', details_json_show_path , method: :get %>
+<%#= link_to 'new video', new_video_model_path, method: :get %>
