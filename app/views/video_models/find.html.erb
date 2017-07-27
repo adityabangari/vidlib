@@ -1,0 +1,40 @@
+<label> Imdb ID</label>
+<%= form_tag details_path , id:"imdb_form" do %>
+    <%= text_field_tag  :imdb_id %>
+    <p id="demo">fill imdb id</p>
+    <%= submit_tag 'Fetch Movie Details', id: 'ftch-mv-btn', class: 'submit' %>
+<% end %>
+
+
+<script>
+    $('#demo').hide();
+    $('#ftch-mv-btn').on('click', function myFunction(event) {
+        var inpObj = $("#imdb_id");
+        if (inpObj.val() == "") {
+            $('#demo').show();
+            event.preventDefault();
+        }
+    });
+
+
+
+
+    //    $('#demo').hide();
+//    $('#ftch-mv-btn').on('click', function(event) {
+//        var text = $('#ftch-mv-btn').html();
+//        if (text == "" ){
+//            $('#demo').show();
+//               event.preventDefault();
+//        }
+//    });
+</script>
+
+<style>
+  #demo{
+  color: red;
+  }
+
+
+</style>
+
+

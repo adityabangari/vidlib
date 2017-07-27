@@ -18,6 +18,11 @@ class VideoModelsController < ApplicationController
   # GET /video_models/1
   # GET /video_models/1.json
   def show
+    @video_model = VideoModel.find(params[:id])
+  end
+
+  def find
+    render 'find'
   end
 
    def json_show
@@ -31,6 +36,7 @@ class VideoModelsController < ApplicationController
 
   # GET /video_models/1/edit
   def edit
+    @video_model = VideoModel.find(params[:id])
   end
 
   # POST /video_models
@@ -41,6 +47,7 @@ class VideoModelsController < ApplicationController
 
     respond_to do |format|
       if @video_model.save
+        # @video_model=params[:video_model]
         format.html { redirect_to @video_model, notice: 'Video model was successfully created.' }
         format.json { render :show, status: :created, location: @video_model }
       else
@@ -51,8 +58,8 @@ class VideoModelsController < ApplicationController
   end
 
   def json_data
-    @id = params[:imdb_id]
-    puts @id.inspect
+    @imdb_id = params[:imdb_id]
+    puts @imdb_id.inspect
 
     if params[:imdb_id].present?
 
@@ -80,7 +87,14 @@ class VideoModelsController < ApplicationController
   # DELETE /video_models/1
   # DELETE /video_models/1.json
   def destroy
+
+
+    @video_model = VideoModel.find(params[:id])
+
+    if @video_model.present?
     @video_model.destroy
+    end
+
     respond_to do |format|
       format.html { redirect_to video_models_url, notice: 'Video model was successfully destroyed.' }
       format.json { head :no_content }
@@ -95,6 +109,6 @@ class VideoModelsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def video_model_params
-      params.require(:video_model).permit(:adult, :backdrop_path, :belongs_to_collection, :budget, :homepage, :id, :imdb_id, :original_language, :original_title, :overview, :popularity, :poster_path, :release_date, :revenue, :runtime, :status, :tagline, :video, :vote_average, :vote_count)
+      params.require(:video_model).permit(:adult, :backdrop_path, :imdb_id, :original_language, :original_title, :overview, :popularity, :poster_path, :release_date, :video, :vote_average, :vote_count)
     end
 end

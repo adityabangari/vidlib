@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
- 
 
+    root 'welcome#index'
 
     resources :video_models
 
@@ -8,8 +8,13 @@ Rails.application.routes.draw do
 
     get '/details/json_show', to: 'video_models#json_show'
 
-  
 
+    get 'find', to: 'video_models#find'
+
+    post '/video_models/new', to: 'video_models#create'
+
+
+  # post 'json_post', to: 'video_models#create'
 
 
   #resources :moviedata

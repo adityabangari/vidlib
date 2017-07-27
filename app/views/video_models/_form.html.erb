@@ -1,19 +1,11 @@
 
-<label> Imdb ID</label>
-<%= form_tag details_path  do %>
-    <%= text_field_tag  :imdb_id %>
-    <%= submit_tag 'Fetch Movie Details', class: 'submit' %>
-<% end %>
-<br>
-<br>
-
 <%= form_for :video_model do |form| %>
-  <% if video_model.errors.any? %>
+  <% if @video_model.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(video_model.errors.count, "error") %> prohibited this video_model from being saved:</h2>
+      <h2><%= pluralize(@video_model.errors.count, "error") %> prohibited this video_model from being saved:</h2>
 
       <ul>
-      <% video_model.errors.full_messages.each do |message| %>
+      <% @video_model.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
@@ -28,26 +20,6 @@
   <div class="field">
     <%= form.label :backdrop_path %>
     <%= form.text_field :backdrop_path, id: :video_model_backdrop_path %>
-  </div>
-
-  <div class="field">
-    <%= form.label :belongs_to_collection %>
-    <%= form.text_field :belongs_to_collection, id: :video_model_belongs_to_collection %>
-  </div>
-
-  <div class="field">
-    <%= form.label :budget %>
-    <%= form.number_field :budget, id: :video_model_budget %>
-  </div>
-
-  <div class="field">
-    <%= form.label :homepage %>
-    <%= form.text_field :homepage, id: :video_model_homepage %>
-  </div>
-
-  <div class="field">
-    <%= form.label :id %>
-    <%= form.number_field :id, id: :video_model_id %>
   </div>
 
 
@@ -81,25 +53,6 @@
     <%= form.text_field :release_date, id: :video_model_release_date %>
   </div>
 
-  <div class="field">
-    <%= form.label :revenue %>
-    <%= form.number_field :revenue, id: :video_model_revenue %>
-  </div>
-
-  <div class="field">
-    <%= form.label :runtime %>
-    <%= form.number_field :runtime, id: :video_model_runtime %>
-  </div>
-
-  <div class="field">
-    <%= form.label :status %>
-    <%= form.text_field :status, id: :video_model_status %>
-  </div>
-
-  <div class="field">
-    <%= form.label :tagline %>
-    <%= form.text_field :tagline, id: :video_model_tagline %>
-  </div>
 
   <div class="field">
     <%= form.label :video %>
