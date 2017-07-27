@@ -58,16 +58,24 @@ class VideoModelsController < ApplicationController
   end
 
   def json_data
-    @imdb_id = params[:imdb_id]
-    puts @imdb_id.inspect
 
-    if params[:imdb_id].present?
-
-        @video_model = HTTParty.get('https://api.themoviedb.org/3/find/' + params[:imdb_id] + '?api_key=b8df5110fb459bebc8d5cb7cbb6acfe8&language=en-US&external_source=imdb_id')
-
+    # puts @imdb_id.inspect
+   @imdb_id = params[:imdb_id]
+     # if params[:imdb_id].present?
+    if @imdb_id.present?
+      @video_model = HTTParty.get('https://api.themoviedb.org/3/find/' + params[:imdb_id] + '?api_key=b8df5110fb459bebc8d5cb7cbb6acfe8&language=en-US&external_source=imdb_id')
+      if (@video_model['movie_results'] != [] )
         render 'json_show'
+      else
+        redirect_to find_path, notice: 'Enter valid Imdb ID'
         # , :video_model => @video_model
+      end
+    else
+      redirect_to find_path, notice: 'Please Enter Imdb ID'
     end
+
+    # end
+
   end
 
   # PATCH/PUT /video_models/1
