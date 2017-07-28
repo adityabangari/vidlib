@@ -1,5 +1,5 @@
 
-<%= form_for :video_model do |form| %>
+<%= form_with(model: video_model, local: true) do |form| %>
   <% if @video_model.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@video_model.errors.count, "error") %> prohibited this video_model from being saved:</h2>
@@ -12,7 +12,13 @@
     </div>
   <% end %>
 
-  <div class="field">
+    <div class="field">
+      <%= form.label :imdb_id %>
+      <%= form.text_field :imdb_id, id: :video_model_imdb_id %>
+    </div>
+
+
+    <div class="field">
     <%= form.label :adult %>
     <%= form.check_box :adult, id: :video_model_adult %>
   </div>

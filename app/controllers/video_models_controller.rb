@@ -81,6 +81,8 @@ class VideoModelsController < ApplicationController
   # PATCH/PUT /video_models/1
   # PATCH/PUT /video_models/1.json
   def update
+
+    @video_model = VideoModel.find(params[:id])
     respond_to do |format|
       if @video_model.update(video_model_params)
         format.html { redirect_to @video_model, notice: 'Video model was successfully updated.' }
